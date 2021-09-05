@@ -22,9 +22,17 @@ const addBook =(req,res)=>{
 
 const getallBook =(req,res)=>{
 
-    booksModel.find({}).then((result)=>{res.json({msg:"added", result:result }).status(201)}).catch((err)=>{res.json({msg:"not added " ,result:err}).status(404)})
+    booksModel.find({}).then((result)=>{res.json({msg:"success", result:result }).status(201)}).catch((err)=>{res.json({msg:"not success " ,result:err}).status(404)})
 
 
 
 }
-module.exports = {addBook ,getallBook }
+// /books/:book_id
+const getspicificBook =(req,res)=>{
+const book_id = req.params.book_id
+    booksModel.findOne({book_id:book_id}).then((result)=>{res.json({msg:"success", result:result }).status(201)}).catch((err)=>{res.json({msg:"not success " ,result:err}).status(404)})
+
+
+
+} 
+module.exports = {addBook ,getallBook,getspicificBook }
