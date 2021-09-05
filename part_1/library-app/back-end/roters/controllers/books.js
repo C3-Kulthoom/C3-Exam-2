@@ -35,4 +35,14 @@ const book_id = req.params.book_id
 
 
 } 
-module.exports = {addBook ,getallBook,getspicificBook }
+
+const deletespicificBook =(req,res)=>{
+    const book_id = req.params.book_id
+        booksModel.findOneAndDelete({book_id:book_id}).then((result)=>{res.json({msg:"success", result:result }).status(201)}).catch((err)=>{res.json({msg:"not success " ,result:err}).status(404)})
+
+    } 
+    
+
+
+
+module.exports = {addBook ,getallBook,getspicificBook,deletespicificBook }
