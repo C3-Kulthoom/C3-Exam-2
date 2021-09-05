@@ -19,4 +19,12 @@ const addBook =(req,res)=>{
 
 }
 
-module.exports = addBook 
+
+const getallBook =(req,res)=>{
+
+    booksModel.find({}).then((result)=>{res.json({msg:"added", result:result }).status(201)}).catch((err)=>{res.json({msg:"not added " ,result:err}).status(404)})
+
+
+
+}
+module.exports = {addBook ,getallBook }
